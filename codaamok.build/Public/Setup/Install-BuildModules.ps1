@@ -2,23 +2,27 @@ function Install-BuildModules {
     <#
     .SYNOPSIS
         Setup
-        Short description
+        Install, or update, and import build-dependent modules
     .DESCRIPTION
-        Long description
+        Install, or update, and import build-dependent modules
     .EXAMPLE
-        PS C:\> <example usage>
-        Explanation of what the example does
-    .INPUTS
-        Inputs (if any)
-    .OUTPUTS
-        Output (if any)
-    .NOTES
-        General notes
+        PS C:\> Install-BuildModules
+        
+        Installs the default build modules "PlatyPS","ChangelogManagement","InvokeBuild" if they're not installed, updates them for the first run if they are installed, and finally imports them.
     #>
+    [CmdletBindind()]
     param (
         [Parameter()]
         [String[]]$Module = @("PlatyPS","ChangelogManagement","InvokeBuild")
     )
 
-    Install-Module -Name $Module -Scope CurrentUser
+    if (-not (Get-Module $Module) -And (Get-Module $Module -ListAvailable)) {
+        # If installed but not imported, try and update them - good for local developemtn, just makes the first run a little delayed
+        Update-Module $Module
+    }
+    elseif (-not (Get-Module $Module -ListAvailable)) {
+        Install-Module $Module -Scope CurrentUser
+    }
+
+    Import-Module $Module -Force
 }
