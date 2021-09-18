@@ -51,8 +51,8 @@ function Export-UnreleasedNotes {
         }
     }
 
-    Write-Verbose "Release notes:"
-    Write-Verbose $ReleaseNotes
+    Write-Verbose "Release notes:" -Verbose
+    $ReleaseNotes | Write-Verbose -Verbose
 
     Set-Content -Value $ReleaseNotes -Path $Path -Force
 }
