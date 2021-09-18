@@ -13,6 +13,8 @@ Store all scripts to process as the module manifest property `ScriptsToProcess`.
 
 ## To Do
 
+- Write blog post on how to develop modules using this helper module
+- Add comment based help
 - Flesh out `New-ProjectDirStructure`
   - Include vscode tasks.json and launch.json
 - Auto-updater in GitHub Actions workflow for build script and workflow yaml

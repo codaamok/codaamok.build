@@ -34,10 +34,10 @@ function Export-UnreleasedNotes {
         if ($Data) {
             $EmptyChangeLog = $false
 
-            Write-Verbose ("# {0}" -f $Property)
+            Write-Output ("# {0}" -f $Property)
 
             foreach ($item in $Data) {
-                Write-Verbose ("- {0}" -f $item)
+                Write-Output ("- {0}" -f $item)
             }
         }
     }

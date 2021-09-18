@@ -89,7 +89,6 @@ task InitaliseBuildDirectory {
 task Changelog {
     Copy-Item -Path $BuildRoot\CHANGELOG.md -Destination $BuildRoot\build\$Script:ModuleName\CHANGELOG.md
     $Script:ChangeLogData = Get-ChangeLogData -Path $BuildRoot\CHANGELOG.md
-    Write-Verbose ("Last released version: {0}" -f $Script:ChangeLogData.Released[0].Version)
     Export-UnreleasedNotes -Path $BuildRoot\release\releasenotes.txt -ChangeLogData $Script:ChangeLogData -NewRelease $Script:NewRelease
 }
 
