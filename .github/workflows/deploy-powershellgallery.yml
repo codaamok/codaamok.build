@@ -1,4 +1,4 @@
-name: "Publish to the PowerShell Gallery"
+name: "Publish module to the PowerShell Gallery"
 
 on: 
   push:
@@ -15,30 +15,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2.3.1
 
-      - name: Install codaamok.build and dependent modules, and import them
+      - name: Install codaamok.build and dependent modules, and set environment variables
         run: |
-          Install-Module -Name "codaamok.build" -ErrorAction "Stop"
-          Install-BuildModules -ErrorAction "Stop"
-        shell: pwsh
-
-      - name: Set environment variables
-        run: |
+          Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+          Install-Module "InvokeBuild" -Force
           $Username, $ProjectName = $env:GITHUB_REPOSITORY -split "/"
-          New-BuildEnvironmentVariable -Platform "GitHubActions" -Variables @{ 
-            "GH_USERNAME"    = $Username
-            "GH_PROJECTNAME" = $ProjectName
-          }
+          Invoke-Build -ModuleName $ProjectName -Author $Username -Task "ImportBuildModule","InstallDependentModules","SetGitHubActionEnvironmentVariables"
         shell: pwsh
 
       - name: Build
-        run: Invoke-Build -ModuleName $env:GH_PROJECTNAME -Author $env:GH_USERNAME -NewRelease
+        run: Invoke-Build -ModuleName $env:GH_PROJECTNAME -Author $env:GH_USERNAME -CommitMessage $env:GH_COMMITMSG -NewRelease $true
         shell: pwsh
 
       - name: Publish to PowerShell Gallery
-        run: Publish-Module -Path .\build\$env:GH_PROJECTNAME\ -NuGetApiKey $env:KEY -ErrorAction "Stop" -Force
+        run: Invoke-Build -ModuleName $env:GH_PROJECTNAME -Task "PublishModule"
         shell: pwsh
         env:
-          KEY: ${{ secrets.PSGALLERY_API_KEY }}
+          PSGALLERY_API_KEY: ${{ secrets.PSGALLERY_API_KEY }}
 
       - name: Create release
         id: create_release
@@ -62,12 +55,6 @@ jobs:
           asset_path: release/${{ env.GH_PROJECTNAME }}_${{ env.VersionToBuild }}.zip
           asset_name: ${{ env.GH_PROJECTNAME }}_${{ env.VersionToBuild }}.zip
           asset_content_type: application/zip
-
-      - name: Copy CHANGELOG.md and module manifest to repository root directory
-        run: |
-          Copy-Item -Path (".\build\{0}\CHANGELOG.md" -f $env:GH_PROJECTNAME) -Destination . -Force
-          Copy-Item -Path (".\build\{0}\{0}.psd1" -f $env:GH_PROJECTNAME) -Destination .\$env:GH_PROJECTNAME -Force
-        shell: pwsh
 
       - name: Commit CHANGELOG.md and module manifest
         run: |

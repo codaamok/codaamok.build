@@ -9,7 +9,7 @@ function GetPSGalleryNextAvailableVersionNumber {
 
     Write-Verbose "Qualifying the version number to build with is available in the PowerShell Gallery" -Verbose
 
-    for ($i = $VersionToBuild.Revision; $i -le 100; $i++) {
+    for ($i = $VersionToBuild.Build; $i -le 100; $i++) {
         if ($i -eq 100) {
             throw "You have 100 unlisted packages under the same build number? Sort your life out."
         }

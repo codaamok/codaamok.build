@@ -34,10 +34,10 @@ function Export-UnreleasedNotes {
         if ($Data) {
             $EmptyChangeLog = $false
 
-            Write-Output ("# {0}" -f $Property)
+            Write-Verbose ("# {0}" -f $Property)
 
             foreach ($item in $Data) {
-                Write-Output ("- {0}" -f $item)
+                Write-Verbose ("- {0}" -f $item)
             }
         }
     }
@@ -51,8 +51,8 @@ function Export-UnreleasedNotes {
         }
     }
 
-    Write-Output "Release notes:"
-    Write-Output $ReleaseNotes
+    Write-Verbose "Release notes:"
+    Write-Verbose $ReleaseNotes
 
     Set-Content -Value $ReleaseNotes -Path $Path -Force
 }

@@ -9,18 +9,18 @@ function Invoke-BuildClean {
         PS C:\> <example usage>
         Explanation of what the example does
     #>
-    [CmdletBindind()]
+    [CmdletBinding()]
     param (
         [Parameter(Mandatory)]
         [String[]]$Path
     )
 
-    foreach ($Path in $Paths) {
-        if (Test-Path $Path) {
-            Remove-Item -Path $Path\* -Exclude ".gitkeep" -Recurse -Force
+    foreach ($item in $Path) {
+        if (Test-Path $item) {
+            Remove-Item -Path $item\* -Exclude ".gitkeep" -Recurse -Force
         }
         else {
-            $null = New-Item -Path $Path -ItemType "Directory" -Force
+            $null = New-Item -Path $item -ItemType "Directory" -Force
         }
     }
 }

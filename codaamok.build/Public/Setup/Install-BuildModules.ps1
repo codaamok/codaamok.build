@@ -10,18 +10,18 @@ function Install-BuildModules {
         
         Installs the default build modules "PlatyPS","ChangelogManagement","InvokeBuild" if they're not installed, updates them for the first run if they are installed, and finally imports them.
     #>
-    [CmdletBindind()]
+    [CmdletBinding()]
     param (
         [Parameter()]
         [String[]]$Module = @("PlatyPS","ChangelogManagement","InvokeBuild")
     )
 
     if (-not (Get-Module $Module) -And (Get-Module $Module -ListAvailable)) {
-        # If installed but not imported, try and update them - good for local developemtn, just makes the first run a little delayed
+        # If installed but not imported, try and update them - good for local development, just makes the first run a little delayed
         Update-Module $Module
     }
     elseif (-not (Get-Module $Module -ListAvailable)) {
-        Install-Module $Module -Scope CurrentUser
+        Install-Module $Module -Scope CurrentUser -Force
     }
 
     Import-Module $Module -Force

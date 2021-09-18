@@ -2,7 +2,7 @@ function New-ProjectDirStructure {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory)]
-        [String]$Path = "C:\git",
+        [String]$Path,
 
         [Parameter(Mandatory)]
         [String]$Name,

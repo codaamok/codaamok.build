@@ -29,23 +29,31 @@ function New-ModuleDirStructure {
         [Parameter()]
         [String]$ProjectUri,
         [Parameter()]
-        [String]$CreateHelpFile,
-        [Parameter()]
         [Switch]$CreateFormatFile,
         [Parameter()]
         [Version]$PowerShellVersion = 5.1
     )
 
     # Create the module and private function directories
-    New-Item -Path $Path\$ModuleName -ItemType Directory -Force
-    New-Item -Path $Path\$ModuleName\Private -ItemType Directory -Force
-    New-Item -Path $Path\$ModuleName\Public -ItemType Directory -Force
+    @(
+        "$Path\$ModuleName",
+        "$Path\.github\workflows"
+        "$Path\$ModuleName\ScriptsToProcess",
+        "$Path\$ModuleName\Files",
+        "$Path\$ModuleName\Private",
+        "$Path\$ModuleName\Public",
+        "$Path\$ModuleName\en-US"
+    ) | ForEach-Object {
+        New-Item -Path $_ -ItemType Directory -Force
+        New-Item -Path $_\.gitkeep -ItemType File -Force
+    }
 
     #Create the module and related files
+    $GitIgnorePath = Join-Path -Path $Path -ChildPath ".gitignore"
     $ModuleScript = "{0}.psm1" -f $ModuleName
     $ModuleScriptPath = Join-Path -Path $Path -ChildPath $ModuleScript
     $ModuleManifest = "{0}.psd1" -f $ModuleName
-    $ModuleManifestPath = Join-Path -Path $Path -Child $ModuleManifest
+    $ModuleManifestPath = Join-Path -Path $Path -ChildPath $ModuleManifest
     New-Item $ModuleManifestPath -ItemType File -Force
     @(
         '$Public  = @( Get-ChildItem -Path $PSScriptRoot\Public -Recurse -Filter "*.ps1" )'
@@ -59,14 +67,16 @@ function New-ModuleDirStructure {
         '    }'
         '}'
         'Export-ModuleMember -Function $Public.Basename'
-    ) | Set-Content -Value $ModuleManifestContent -Path $ModuleManifestPath -Force
+    ) | Set-Content -Path $ModuleManifestPath -Force
+    @(
+        'build/*'
+        'release/*'
+        '!*.gitkeep'
+    ) | Set-Content -Path $GitIgnorePath
 
-    if ($CreateHelpFile) {
-        New-Item -Path $Path\$ModuleName\en-US -ItemType Directory -Force
-        $ModuleHelp = "about_{0}.help.txt" -f $ModuleName
-        $ModuleHelpPath - "{0}\{1}\en-US\{2}" -f $Path, $ModuleName, $ModuleHelp
-        New-Item $ModuleHelpPath -ItemType File -Force
-    }
+    $ModuleHelp = "about_{0}.help.txt" -f $ModuleName
+    $ModuleHelpPath - "{0}\{1}\en-US\{2}" -f $Path, $ModuleName, $ModuleHelp
+    New-Item $ModuleHelpPath -ItemType File -Force
 
     $NewModuleManifestSplat = @{
         Path                = Join-Path -Path $Path -ChildPath $ModuleName | Join-Path -ChildPath $ModuleManifest
