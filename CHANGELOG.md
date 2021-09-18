@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.1.0] - 2021-09-18
 ### Changed
 - Removed requirement to use emoji :shipit: in commit message for pipeline to start - was pointless if I wanted to allow ad-hoc use of the pipeline via workflow dispatch
 
@@ -10,5 +12,6 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.0.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.1.0..HEAD
+[1.1.0]: https://github.com/codaamok/codaamok.build/compare/1.0.0..1.1.0
 [1.0.0]: https://github.com/codaamok/codaamok.build/tree/1.0.0
