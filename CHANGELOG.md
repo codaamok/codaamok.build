@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Changed
+- Use [GitVersion](https://gitversion.net) to determine version numbers instead of `Get-BuildVersionNumber`
 
 ## [1.1.0] - 2021-09-18
 ### Changed
