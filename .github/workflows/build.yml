@@ -51,8 +51,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.gitversion.outputs.SemVer }}
-          release_name: Release ${{ steps.gitversion.outputs.SemVer }}
+          tag_name: ${{ env.GitVersion_SemVer }}
+          release_name: Release ${{ env.GitVersion_SemVer }}
           body_path: release/releasenotes.txt
           draft: false
           prerelease: false
@@ -64,8 +64,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url:  ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release/${{ env.GH_PROJECTNAME }}_${{ steps.gitversion.outputs.SemVer }}.zip
-          asset_name: ${{ env.GH_PROJECTNAME }}_${{ steps.gitversion.outputs.SemVer }}.zip
+          asset_path: release/${{ env.GH_PROJECTNAME }}_${{ env.GitVersion_SemVer }}.zip
+          asset_name: ${{ env.GH_PROJECTNAME }}_${{ env.GitVersion_SemVer }}.zip
           asset_content_type: application/zip
 
       - name: Commit CHANGELOG.md and module manifest
@@ -73,7 +73,7 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add CHANGELOG.md ${GH_PROJECTNAME}/${GH_PROJECTNAME}.psd1 docs
-          git commit -m "Released ${steps.gitversion.outputs.SemVer}"
+          git commit -m "Released ${{ env.GitVersion_SemVer }}"
       
       - name: Push commit
         uses: ad-m/github-push-action@master

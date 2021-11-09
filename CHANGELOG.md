@@ -2,6 +2,9 @@
 ### Changed
 - Use [GitVersion](https://gitversion.net) to determine version numbers instead of `Get-BuildVersionNumber`
 
+### Fixed
+- `build.yml` did not correctly commit at the end of the pipeline
+
 ## [1.1.0] - 2021-09-18
 ### Changed
 - Removed requirement to use emoji :shipit: in commit message for pipeline to start - was pointless if I wanted to allow ad-hoc use of the pipeline via workflow dispatch
