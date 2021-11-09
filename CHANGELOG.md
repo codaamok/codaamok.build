@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.2.1] - 2021-11-09
 ### Changed
 - Use [GitVersion](https://gitversion.net) to determine version numbers instead of `Get-BuildVersionNumber`
 
@@ -17,6 +19,7 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.1.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.2.1..HEAD
+[1.2.1]: https://github.com/codaamok/codaamok.build/compare/1.1.0..1.2.1
 [1.1.0]: https://github.com/codaamok/codaamok.build/compare/1.0.0..1.1.0
 [1.0.0]: https://github.com/codaamok/codaamok.build/tree/1.0.0
