@@ -28,16 +28,16 @@ function Update-BuildFiles {
             DestinationPath = $DestinationPath
         },
         [PSCustomObject]@{
-            File = "{0}\deploy-powershellgallery.yml" -f $Module.ModuleBase
+            File = "{0}\build.yml" -f $Module.ModuleBase
             DestinationPath = "{0}\.github\workflows" -f $DestinationPath
         },
         [PSCustomObject]@{
-            File = "{0}\Files\deploy-powershellgallery.yml" -f $Module.ModuleBase
+            File = "{0}\Files\build.yml" -f $Module.ModuleBase
             DestinationPath = "{0}\.github\workflows" -f $DestinationPath
         }
     ) | ForEach-Object {
         if (Test-Path $_.File) {
-            New-Item -Path $_.DestinationPath -ItemType "Directory" -Force
+            $null = New-Item -Path $_.DestinationPath -ItemType "Directory" -Force
             Copy-Item -Path $_.File -Destination $_.DestinationPath -Confirm
         }
     }

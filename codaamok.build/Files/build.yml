@@ -1,4 +1,4 @@
-name: "Publish module to the PowerShell Gallery"
+name: "Create GitHub release and publish to the PowerShell Gallery"
 
 on: 
   push:
@@ -13,6 +13,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.3.1
+        with:
+          fetch-depth: 0
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.10
+        with:
+          versionSpec: '5.x'
+
+      - name: Determine Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.10
+        with:
+          useConfigFile: true
 
       - name: Install codaamok.build and dependent modules, and set environment variables
         run: |
@@ -23,7 +36,7 @@ jobs:
         shell: pwsh
 
       - name: Build
-        run: Invoke-Build -ModuleName $env:GH_PROJECTNAME -Author $env:GH_USERNAME -CommitMessage $env:GH_COMMITMSG -NewRelease $true
+        run: Invoke-Build -ModuleName $env:GH_PROJECTNAME -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true
         shell: pwsh
 
       - name: Publish to PowerShell Gallery
@@ -38,8 +51,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.VersionToBuild }}
-          release_name: Release ${{ env.VersionToBuild }}
+          tag_name: ${{ steps.gitversion.outputs.SemVer }}
+          release_name: Release ${{ steps.gitversion.outputs.SemVer }}
           body_path: release/releasenotes.txt
           draft: false
           prerelease: false
@@ -51,8 +64,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url:  ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release/${{ env.GH_PROJECTNAME }}_${{ env.VersionToBuild }}.zip
-          asset_name: ${{ env.GH_PROJECTNAME }}_${{ env.VersionToBuild }}.zip
+          asset_path: release/${{ env.GH_PROJECTNAME }}_${{ steps.gitversion.outputs.SemVer }}.zip
+          asset_name: ${{ env.GH_PROJECTNAME }}_${{ steps.gitversion.outputs.SemVer }}.zip
           asset_content_type: application/zip
 
       - name: Commit CHANGELOG.md and module manifest
@@ -60,7 +73,7 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add CHANGELOG.md ${GH_PROJECTNAME}/${GH_PROJECTNAME}.psd1 docs
-          git commit -m "Released ${VersionToBuild}: updated change log and manifest"
+          git commit -m "Released ${steps.gitversion.outputs.SemVer}"
       
       - name: Push commit
         uses: ad-m/github-push-action@master

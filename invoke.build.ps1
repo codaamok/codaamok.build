@@ -9,7 +9,7 @@ param (
     [String]$Author,
 
     [Parameter()]
-    [String]$CommitMessage,
+    [String]$Version,
 
     [Parameter()]
     [Bool]$UpdateDocs = $false,
@@ -22,7 +22,6 @@ param (
 task . ImportBuildModule,
     InitaliseBuildDirectory,
     Changelog,
-    GetVersionToBuild,
     UpdateChangeLog,
     CreateRootModule,
     CreateProcessScript,
@@ -45,7 +44,6 @@ task SetGitHubActionEnvironmentVariables {
     New-BuildEnvironmentVariable -Platform "GitHubActions" -Variable @{
         "GH_USERNAME"    = $Author
         "GH_PROJECTNAME" = $ModuleName
-        "GH_COMMITMSG"   = $CommitMessage
     }
 }
 
@@ -92,7 +90,7 @@ task Changelog {
     Export-UnreleasedNotes -Path $BuildRoot\release\releasenotes.txt -ChangeLogData $Script:ChangeLogData -NewRelease $Script:NewRelease
 }
 
-# Synopsis: Determine version number to build with
+<# Synopsis: Determine version number to build with
 task GetVersionToBuild {
     $Params = @{
         NewRelease = $Script:NewRelease
@@ -118,6 +116,7 @@ task GetVersionToBuild {
         "VersionToBuild" = $Script:VersionToBuild.ToString()
     }
 }
+#>
 
 # Synopsis: Update CHANGELOG.md (if building a new release with -NewRelease)
 task UpdateChangeLog -If ($Script:NewRelease) {
@@ -127,7 +126,7 @@ task UpdateChangeLog -If ($Script:NewRelease) {
         Unreleased    = "https://github.com/{0}/{1}/compare/{{CUR}}..HEAD" -f $Script:Author, $Script:ModuleName
     }
 
-    Update-Changelog -Path $BuildRoot\build\$Script:ModuleName\CHANGELOG.md -ReleaseVersion $Script:VersionToBuild -LinkMode Automatic -LinkPattern $LinkPattern
+    Update-Changelog -Path $BuildRoot\build\$Script:ModuleName\CHANGELOG.md -ReleaseVersion $Script:Version -LinkMode Automatic -LinkPattern $LinkPattern
 }
 
 # Synopsis: Creates a single .psm1 file of all private and public functions of the to-be-built module
@@ -149,7 +148,7 @@ task UpdateModuleManifest {
         Path              = $Script:ManifestFile
         RootModule        = (Split-Path $Script:RootModule -Leaf)
         FunctionsToExport = Get-PublicFunctions -Path $BuildRoot\$Script:ModuleName\Public
-        ModuleVersion     = $Script:VersionToBuild
+        ModuleVersion     = $Script:Version
         ReleaseNotes      = Get-Content $BuildRoot\release\releasenotes.txt
     }
 
@@ -180,7 +179,7 @@ task UpdateModuleManifest {
 
 # Synopsis: Create archive of the module
 task CreateArchive {
-    $ReleaseAsset = "{0}_{1}.zip" -f $Script:ModuleName, $Script:VersionToBuild
+    $ReleaseAsset = "{0}_{1}.zip" -f $Script:ModuleName, $Script:Version
     Compress-Archive -Path $BuildRoot\build\$Script:ModuleName\* -DestinationPath $BuildRoot\release\$ReleaseAsset -Force
 }
 
@@ -196,12 +195,14 @@ task UpdateProjectRepo -If ($NewRelease) {
 
     $ManifestData = Import-PowerShellDataFile -Path $Script:ManifestFile
 
+    # Instead of copying the manifest from the .\build directory, update it in place
+    # This enables me to keep FunctionsToExport = '*' for development. Therefore instead only update the important bits e.g. version and release notes    
     $UpdateModuleManifestSplat = @{
         Path          = "{0}\{1}\{1}.psd1" -f $BuildRoot, $Script:ModuleName
         ModuleVersion = $ManifestData.ModuleVersion
         ReleaseNotes  = $ManifestData.PrivateData.PSData.ReleaseNotes
     }
-
     Update-ModuleManifest @UpdateModuleManifestSplat
+    
     $null = Test-ModuleManifest -Path $Script:ManifestFile
 }
