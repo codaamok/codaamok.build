@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.6.6] - 2021-11-10
 ### Fixed
 - Updated invoke.build.ps1
 
@@ -49,7 +51,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.6.3..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.6.6..HEAD
+[1.6.6]: https://github.com/codaamok/codaamok.build/compare/1.6.3..1.6.6
 [1.6.3]: https://github.com/codaamok/codaamok.build/compare/1.6.0..1.6.3
 [1.6.0]: https://github.com/codaamok/codaamok.build/compare/1.5.5..1.6.0
 [1.5.5]: https://github.com/codaamok/codaamok.build/compare/1.3.0..1.5.5

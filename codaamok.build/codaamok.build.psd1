@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.6.3'
+ModuleVersion = '1.6.6'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
