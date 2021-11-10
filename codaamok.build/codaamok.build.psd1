@@ -108,7 +108,7 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = '# Added
-- Added `CONTRIBUTING.md` and `GitVersion.yml` to the `FileList`'
+- Added CONTRIBUTING.md and GitVersion.yml to the FileList'
 
         # Prerelease string of this module
         # Prerelease = ''

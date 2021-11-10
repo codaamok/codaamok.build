@@ -21,8 +21,8 @@ param (
 # Synopsis: Initiate the build process
 task . ImportBuildModule,
     InitaliseBuildDirectory,
-    Changelog,
     UpdateChangeLog,
+    CopyChangeLog,
     CreateRootModule,
     CreateProcessScript,
     UpdateModuleManifest,
@@ -84,7 +84,7 @@ task InitaliseBuildDirectory {
 }
 
 # Synopsis: Get change log data, copy it to the build directory, and create releasenotes.txt
-task Changelog {
+task CopyChangeLog {
     Copy-Item -Path $BuildRoot\CHANGELOG.md -Destination $BuildRoot\build\$Script:ModuleName\CHANGELOG.md
     $Script:ChangeLogData = Get-ChangeLogData -Path $BuildRoot\CHANGELOG.md
     Export-UnreleasedNotes -Path $BuildRoot\release\releasenotes.txt -ChangeLogData $Script:ChangeLogData -NewRelease $Script:NewRelease
@@ -148,8 +148,17 @@ task UpdateModuleManifest {
         Path              = $Script:ManifestFile
         RootModule        = (Split-Path $Script:RootModule -Leaf)
         FunctionsToExport = Get-PublicFunctions -Path $BuildRoot\$Script:ModuleName\Public
-        ModuleVersion     = $Script:Version
-        ReleaseNotes      = Get-Content $BuildRoot\release\releasenotes.txt
+        ReleaseNotes      = (Get-Content $BuildRoot\release\releasenotes.txt) -replace '`'
+    }
+
+    # Build with pre-release data from the branch if the -Version parameter is not passed (for local development and testing)
+    if ($Script:Version) {
+        $UpdateModuleManifestSplat["ModuleVersion"] = $Script:Version
+    }
+    else {
+        $GitVersion = (gitversion.exe | ConvertFrom-Json)
+        $UpdateModuleManifestSplat["ModuleVersion"] = $GitVersion.MajorMinorPatch
+        $UpdateModuleManifestSplat["Prerelease"] = $GitVersion.NuGetPreReleaseTag
     }
 
     if ($Script:FormatFiles) {
@@ -158,7 +167,7 @@ task UpdateModuleManifest {
 
     if ($Script:FileList) {
         # Use this instead of Updatet-ModuleManifest due to https://github.com/PowerShell/PowerShellGet/issues/196
-        $Regex = '(#? ?FileList.+)'
+        $Regex = '^# FileList = @\(\)$'
         $ReplaceStr = 'FileList = "{0}"' -f [String]::Join('", "', $Script:FileList.Name)
         (Get-Content -Path $Script:ManifestFile.FullName) -replace $Regex, $ReplaceStr | Set-Content -Path $Script:ManifestFile
     }
@@ -169,7 +178,7 @@ task UpdateModuleManifest {
         $ReplaceStr = 'ScriptsToProcess = "Process.ps1"'
         (Get-Content -Path $Script:ManifestFile.FullName) -replace $Regex, $ReplaceStr | Set-Content -Path $Script:ManifestFile
     }
-    
+
     Update-ModuleManifest @UpdateModuleManifestSplat
 
     # Arguably a moot point as Update-MooduleManifest obviously does some testing to ensure a valid manifest is there first before updating it
@@ -189,10 +198,8 @@ task UpdateDocs -If ($NewRelease -Or $UpdateDocs) {
     New-MarkdownHelp -Module $Script:ModuleName -OutputFolder $BuildRoot\docs -Force
 }
 
-# Synopsis: Update the project's repository with files updated by the pipeline e.g. changelog and module manifest
+# Synopsis: Update the project's repository with files updated by the pipeline e.g. module manifest
 task UpdateProjectRepo -If ($NewRelease) {
-    Copy-Item -Path $BuildRoot\build\$Script:ModuleName\CHANGELOG.md -Destination $BuildRoot\CHANGELOG.md -Force
-
     $ManifestData = Import-PowerShellDataFile -Path $Script:ManifestFile
 
     # Instead of copying the manifest from the .\build directory, update it in place

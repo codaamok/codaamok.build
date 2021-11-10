@@ -1,9 +1,16 @@
 ## [Unreleased]
 ### Added
+- Local builds now use pre-release tags, i.e. when `-Version` is not passed to the built script
 - Added `CONTRIBUTING.md` to this project
 
 ### Changed
+- Always assume FileList is empty in manifest, just in case "FileList" is mentioned in the release notes, otherwise the regex replace could have got screwed up
+- Change build tasks to update change log and then copy it to the `build` directory, and removed the copying of the change log in the task build task
+- Renamed build task `Changelog` to `CopyChangeLog`
 - Prefix GitHub release and Git tags with `v` in the pipeline
+
+### Fixed
+- Removed backticks from release notes in manifest, was preventing Update-ModuleManifest from working during build
 
 ## [1.3.0] - 2021-11-10
 ### Added
