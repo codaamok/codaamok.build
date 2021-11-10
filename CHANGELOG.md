@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- Updated invoke.build.ps1
 
 ## [1.6.3] - 2021-11-10
 ### Fixed
