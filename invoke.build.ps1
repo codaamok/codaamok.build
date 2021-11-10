@@ -19,8 +19,7 @@ param (
 )
 
 # Synopsis: Initiate the build process
-task . VerifyGitVersionIsInstalled,
-    ImportBuildModule,
+task . ImportBuildModule,
     InitaliseBuildDirectory,
     UpdateChangeLog,
     CopyChangeLog,
@@ -38,11 +37,6 @@ task InstallDependencies {
         $Module += "codaamok.build"
     }
     Install-BuildModules -Module $Modules
-}
-
-# Synopsis: Verify if gitversion.exe exists, bail if not
-task VerifyGitVersionIsInstalled {
-    Get-Command "gitversion"
 }
 
 # Synopsis: Set build platform specific environment variables
@@ -89,13 +83,6 @@ task InitaliseBuildDirectory {
     $Script:ManifestFile = Copy-Item -Path $BuildRoot\$Script:ModuleName\$Script:ModuleName.psd1 -Destination $BuildRoot\build\$Script:ModuleName\$Script:ModuleName.psd1 -PassThru
 }
 
-# Synopsis: Get change log data, copy it to the build directory, and create releasenotes.txt
-task CopyChangeLog {
-    Copy-Item -Path $BuildRoot\CHANGELOG.md -Destination $BuildRoot\build\$Script:ModuleName\CHANGELOG.md
-    $Script:ChangeLogData = Get-ChangeLogData -Path $BuildRoot\CHANGELOG.md
-    Export-UnreleasedNotes -Path $BuildRoot\release\releasenotes.txt -ChangeLogData $Script:ChangeLogData -NewRelease $Script:NewRelease
-}
-
 <# Synopsis: Determine version number to build with
 task GetVersionToBuild {
     $Params = @{
@@ -133,6 +120,13 @@ task UpdateChangeLog -If ($Script:NewRelease) {
     }
 
     Update-Changelog -Path $BuildRoot\CHANGELOG.md -ReleaseVersion $Script:Version -LinkMode Automatic -LinkPattern $LinkPattern
+}
+
+# Synopsis: Get change log data, copy it to the build directory, and create releasenotes.txt
+task CopyChangeLog {
+    Copy-Item -Path $BuildRoot\CHANGELOG.md -Destination $BuildRoot\build\$Script:ModuleName\CHANGELOG.md
+    $Script:ChangeLogData = Get-ChangeLogData -Path $BuildRoot\CHANGELOG.md
+    Export-UnreleasedNotes -Path $BuildRoot\release\releasenotes.txt -ChangeLogData $Script:ChangeLogData -NewRelease $Script:NewRelease
 }
 
 # Synopsis: Creates a single .psm1 file of all private and public functions of the to-be-built module
