@@ -1,5 +1,6 @@
 ## [Unreleased]
 ### Added
+- Build script now bails if `gitversion.exe` is not present on system
 - Local builds now use pre-release tags, i.e. when `-Version` is not passed to the built script
 - Added `CONTRIBUTING.md` to this project
 
