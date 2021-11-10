@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Added
+- Added `CONTRIBUTING.md` and `GitVersion.yml` to the `FileList`
 
 ## [1.2.1] - 2021-11-09
 ### Changed

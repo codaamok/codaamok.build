@@ -34,6 +34,22 @@ function Update-BuildFiles {
         [PSCustomObject]@{
             File = "{0}\Files\build.yml" -f $Module.ModuleBase
             DestinationPath = "{0}\.github\workflows" -f $DestinationPath
+        },
+        [PSCustomObject]@{
+            File = "{0}\CONTRIBUTING.md" -f $Module.ModuleBase
+            DestinationPath = $DestinationPath
+        },
+        [PSCustomObject]@{
+            File = "{0}\Files\CONTRIBUTING.md" -f $Module.ModuleBase
+            DestinationPath = $DestinationPath
+        },
+        [PSCustomObject]@{
+            File = "{0}\GitVersion.yml" -f $Module.ModuleBase
+            DestinationPath = $DestinationPath
+        },
+        [PSCustomObject]@{
+            File = "{0}\Files\GitVersion.yml" -f $Module.ModuleBase
+            DestinationPath = $DestinationPath
         }
     ) | ForEach-Object {
         if (Test-Path $_.File) {
