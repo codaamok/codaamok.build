@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- Build task InstallDependencies was not running before attempting to import codaamok.build
 
 ## [1.6.0] - 2021-11-10
 ### Added
