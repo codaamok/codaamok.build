@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.6.3] - 2021-11-10
 ### Fixed
 - Build task InstallDependencies was not running before attempting to import codaamok.build
 
@@ -45,7 +47,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.6.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.6.3..HEAD
+[1.6.3]: https://github.com/codaamok/codaamok.build/compare/1.6.0..1.6.3
 [1.6.0]: https://github.com/codaamok/codaamok.build/compare/1.5.5..1.6.0
 [1.5.5]: https://github.com/codaamok/codaamok.build/compare/1.3.0..1.5.5
 [1.3.0]: https://github.com/codaamok/codaamok.build/compare/1.2.1..1.3.0
