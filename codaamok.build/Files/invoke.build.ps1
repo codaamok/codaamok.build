@@ -34,9 +34,9 @@ task . ImportBuildModule,
 task InstallDependencies {
     $Modules = "PlatyPS","ChangelogManagement"
     if ($Script:ModuleName -ne "codaamok.build") {
-        $Module += "codaamok.build"
+        $Modules += "codaamok.build"
     }
-    Install-BuildModules -Module $Modules
+    Install-Module -Name $Modules -Scope CurrentUser
 }
 
 # Synopsis: Set build platform specific environment variables
