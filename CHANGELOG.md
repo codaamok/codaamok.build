@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.5.5] - 2021-11-10
 ### Added
 - Build script now bails if `gitversion.exe` is not present on system
 - Local builds now use pre-release tags, i.e. when `-Version` is not passed to the built script
@@ -37,7 +39,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.3.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.5.5..HEAD
+[1.5.5]: https://github.com/codaamok/codaamok.build/compare/1.3.0..1.5.5
 [1.3.0]: https://github.com/codaamok/codaamok.build/compare/1.2.1..1.3.0
 [1.2.1]: https://github.com/codaamok/codaamok.build/compare/1.1.0..1.2.1
 [1.1.0]: https://github.com/codaamok/codaamok.build/compare/1.0.0..1.1.0
