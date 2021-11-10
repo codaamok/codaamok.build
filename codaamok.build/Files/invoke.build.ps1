@@ -19,8 +19,7 @@ param (
 )
 
 # Synopsis: Initiate the build process
-task . VerifyGitVersionIsInstalled,
-    ImportBuildModule,
+task . ImportBuildModule,
     InitaliseBuildDirectory,
     UpdateChangeLog,
     CopyChangeLog,
@@ -38,11 +37,6 @@ task InstallDependencies {
         $Module += "codaamok.build"
     }
     Install-BuildModules -Module $Modules
-}
-
-# Synopsis: Verify if gitversion.exe exists, bail if not
-task VerifyGitVersionIsInstalled {
-    Get-Command "gitversion"
 }
 
 # Synopsis: Set build platform specific environment variables
