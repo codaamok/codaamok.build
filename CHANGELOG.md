@@ -1,4 +1,9 @@
 ## [Unreleased]
+### Added
+- Added `CONTRIBUTING.md` to this project
+
+### Changed
+- Prefix GitHub release and Git tags with `v` in the pipeline
 
 ## [1.3.0] - 2021-11-10
 ### Added
