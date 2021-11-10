@@ -11,6 +11,7 @@
 - Prefix GitHub release and Git tags with `v` in the pipeline
 
 ### Fixed
+- Broken reference to CHANGELOG.md in the pipeline in build task `UpdateChangeLog`
 - Removed backticks from release notes in manifest, was preventing Update-ModuleManifest from working during build
 
 ## [1.3.0] - 2021-11-10

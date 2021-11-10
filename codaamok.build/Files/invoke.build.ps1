@@ -132,7 +132,7 @@ task UpdateChangeLog -If ($Script:NewRelease) {
         Unreleased    = "https://github.com/{0}/{1}/compare/{{CUR}}..HEAD" -f $Script:Author, $Script:ModuleName
     }
 
-    Update-Changelog -Path $BuildRoot\build\$Script:ModuleName\CHANGELOG.md -ReleaseVersion $Script:Version -LinkMode Automatic -LinkPattern $LinkPattern
+    Update-Changelog -Path $BuildRoot\CHANGELOG.md -ReleaseVersion $Script:Version -LinkMode Automatic -LinkPattern $LinkPattern
 }
 
 # Synopsis: Creates a single .psm1 file of all private and public functions of the to-be-built module
