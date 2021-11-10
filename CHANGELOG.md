@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Added
+- Added .gitignore file to the FileList
 
 ## [1.5.5] - 2021-11-10
 ### Added

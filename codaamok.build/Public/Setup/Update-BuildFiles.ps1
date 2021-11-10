@@ -50,6 +50,14 @@ function Update-BuildFiles {
         [PSCustomObject]@{
             File = "{0}\Files\GitVersion.yml" -f $Module.ModuleBase
             DestinationPath = $DestinationPath
+        },
+        [PSCustomObject]@{
+            File = "{0}\.gitignore" -f $Module.ModuleBase
+            DestinationPath = $DestinationPath
+        },
+        [PSCustomObject]@{
+            File = "{0}\Files\.gitignore" -f $Module.ModuleBase
+            DestinationPath = $DestinationPath
         }
     ) | ForEach-Object {
         if (Test-Path $_.File) {
