@@ -19,7 +19,8 @@ param (
 )
 
 # Synopsis: Initiate the build process
-task . ImportBuildModule,
+task . VerifyGitVersionIsInstalled,
+    ImportBuildModule,
     InitaliseBuildDirectory,
     UpdateChangeLog,
     CopyChangeLog,
@@ -31,12 +32,17 @@ task . ImportBuildModule,
     UpdateProjectRepo
 
 # Synopsis: Install dependent build modules
-task InstallDependentModules {
+task InstallDependencies {
     $Modules = "PlatyPS","ChangelogManagement"
     if ($Script:ModuleName -ne "codaamok.build") {
         $Module += "codaamok.build"
     }
     Install-BuildModules -Module $Modules
+}
+
+# Synopsis: Verify if gitversion.exe exists, bail if not
+task VerifyGitVersionIsInstalled {
+    Get-Command "gitversion"
 }
 
 # Synopsis: Set build platform specific environment variables
