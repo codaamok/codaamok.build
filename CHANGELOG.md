@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.6.7] - 2021-11-18
 ### Fixed
 - Use `Test-ModuleManifest` against the correct manifest in the `UpdateProjectRepo` build task
 
@@ -53,7 +55,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.6.6..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.6.7..HEAD
+[1.6.7]: https://github.com/codaamok/codaamok.build/compare/1.6.6..1.6.7
 [1.6.6]: https://github.com/codaamok/codaamok.build/compare/1.6.3..1.6.6
 [1.6.3]: https://github.com/codaamok/codaamok.build/compare/1.6.0..1.6.3
 [1.6.0]: https://github.com/codaamok/codaamok.build/compare/1.5.5..1.6.0
