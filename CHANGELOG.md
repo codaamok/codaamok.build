@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- Use `Test-ModuleManifest` against the correct manifest in the `UpdateProjectRepo` build task
 
 ## [1.6.6] - 2021-11-10
 ### Fixed

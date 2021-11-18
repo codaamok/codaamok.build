@@ -211,5 +211,5 @@ task UpdateProjectRepo -If ($NewRelease) {
     }
     Update-ModuleManifest @UpdateModuleManifestSplat
     
-    $null = Test-ModuleManifest -Path $Script:ManifestFile
+    $null = Test-ModuleManifest -Path ("{0}\{1}\{1}.psd1" -f $BuildRoot, $Script:ModuleName)
 }
