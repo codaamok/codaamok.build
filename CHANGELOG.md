@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.7.0] - 2021-11-19
 ### Changed
 - Reverted change in invoke.build.ps1 which updated changelog and then copied it as it introduced an issue of making it tricky to add release notes for current version to module manifest during build
 
@@ -57,7 +59,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.6.7..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.7.0..HEAD
+[1.7.0]: https://github.com/codaamok/codaamok.build/compare/1.6.7..1.7.0
 [1.6.7]: https://github.com/codaamok/codaamok.build/compare/1.6.6..1.6.7
 [1.6.6]: https://github.com/codaamok/codaamok.build/compare/1.6.3..1.6.6
 [1.6.3]: https://github.com/codaamok/codaamok.build/compare/1.6.0..1.6.3
