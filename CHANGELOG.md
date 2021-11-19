@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Changed
+- Reverted change in invoke.build.ps1 which updated changelog and then copied it as it introduced an issue of making it tricky to add release notes for current version to module manifest during build
 
 ## [1.6.7] - 2021-11-18
 ### Fixed
