@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- Fixed build script to copy *format.ps1xml files
 
 ## [1.7.0] - 2021-11-19
 ### Changed
