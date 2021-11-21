@@ -2,6 +2,9 @@
 ### Added
 - Added custom pre and post build tasks to `invoke.build.ps1` and also included `custom.build.ps1` which drives project-specific custom pre and post buildactions
 
+### Fixed
+- Fixed GitHub Actions workflow `build.yml` to reference correct build.ps1 now that there are multiple (custom.build.ps1 + invoke.build.ps1)
+
 ## [1.7.3] - 2021-11-21
 ### Changed
 - Some improvements to `Update-BuildFiles` so I no longer need to hard code new typical project files
