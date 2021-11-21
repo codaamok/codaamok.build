@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.8.1] - 2021-11-21
 ### Added
 - Added custom pre and post build tasks to `invoke.build.ps1` and also included `custom.build.ps1` which drives project-specific custom pre and post buildactions
 
@@ -72,7 +74,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.7.3..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.8.1..HEAD
+[1.8.1]: https://github.com/codaamok/codaamok.build/compare/1.7.3..1.8.1
 [1.7.3]: https://github.com/codaamok/codaamok.build/compare/1.7.1..1.7.3
 [1.7.1]: https://github.com/codaamok/codaamok.build/compare/1.7.0..1.7.1
 [1.7.0]: https://github.com/codaamok/codaamok.build/compare/1.6.7..1.7.0
