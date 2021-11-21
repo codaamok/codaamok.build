@@ -4,6 +4,7 @@
 
 ### Fixed
 - Typo in build.yml referencing GH_PROJECTNAME env var
+- Typo in build.yml referencing GH_PROJECTNAME env var
 
 ## [1.9.0] - 2021-11-21
 ### Changed

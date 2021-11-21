@@ -39,7 +39,7 @@ jobs:
       - name: Build
         run: |
           $Params = @{
-            ModuleName = $env:GH_PROJETNAME
+            ModuleName = $env:GH_PROJECTNAME
             Author     = $env:GH_USERNAME
             Version    = $env:GitVersion_SemVer
             NewRelease = $true
@@ -50,7 +50,7 @@ jobs:
         shell: pwsh
 
       - name: Custom pre-release tasks
-        run: Invoke-Build -File "custom.build.ps1" -ModuleName $env:GH_PROJETNAME -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true -Task PreRelease
+        run: Invoke-Build -File "custom.build.ps1" -ModuleName $env:GH_PROJECTNAME -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true -Task PreRelease
         shell: pwsh
 
       - name: Publish to PowerShell Gallery
@@ -95,5 +95,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Custom post-release tasks
-        run: Invoke-Build -File "custom.build.ps1" -ModuleName $env:GH_PROJETNAME -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true -Task PostRelease
+        run: Invoke-Build -File "custom.build.ps1" -ModuleName $env:GH_PROJECTNAME -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true -Task PostRelease
         shell: pwsh
