@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Added
+- Improved templating for custom pre/post build/release tasks
 
 ## [1.9.0] - 2021-11-21
 ### Changed

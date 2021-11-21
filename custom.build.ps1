@@ -23,10 +23,18 @@ param (
     [Bool]$NewRelease
 )
 
-task Pre {
+task PreBuild {
 
 }
 
-task Post {
+task PostBuild {
+
+}
+
+task PreRelease {
+
+}
+
+task PostRelease {
 
 }

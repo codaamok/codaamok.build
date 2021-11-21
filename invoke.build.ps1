@@ -28,7 +28,6 @@ param (
 # Synopsis: Initiate the build process
 task . ImportBuildModule,
     InitaliseBuildDirectory,
-    CustomPreBuildTask,
     CopyChangeLog,
     UpdateChangeLog,
     CreateRootModule,
@@ -36,18 +35,7 @@ task . ImportBuildModule,
     UpdateModuleManifest,
     CreateArchive,
     UpdateDocs,
-    UpdateProjectRepo,
-    CustomPostBuildTask
-
-# Synopsis: Invoke project-specific pre-build custom actions
-task CustomPreBuildTask -If (Test-Path "$BuildRoot\custom.build.ps1") {
-    Invoke-Build -File "$BuildRoot\custom.build.ps1" -Task Pre -ModuleName $ModuleName -Author $Author -NewRelease $NewRelease
-}
-
-# Synopsis: Invoke project-specific post-build custom actions
-task CustomPostBuildTask -If (Test-Path "$BuildRoot\custom.build.ps1") {
-    Invoke-Build -File "$BuildRoot\custom.build.ps1" -Task Post -ModuleName $ModuleName -Author $Author -NewRelease $NewRelease
-}
+    UpdateProjectRepo
 
 # Synopsis: Install dependent build modules
 task InstallDependencies {
