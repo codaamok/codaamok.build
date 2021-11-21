@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.9.0'
+ModuleVersion = '1.9.3'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -107,8 +107,11 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = '# Changed
-- Added parameters to custom.build.ps1'
+        ReleaseNotes = '# Added
+- Improved templating for custom pre/post build/release tasks
+# Fixed
+- Typo in build.yml referencing GH_PROJECTNAME env var
+- Typo in build.yml referencing GH_PROJECTNAME env var'
 
         # Prerelease string of this module
         # Prerelease = ''

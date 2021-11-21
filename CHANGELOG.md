@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.9.3] - 2021-11-21
 ### Added
 - Improved templating for custom pre/post build/release tasks
 
@@ -84,7 +86,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.9.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.9.3..HEAD
+[1.9.3]: https://github.com/codaamok/codaamok.build/compare/1.9.0..1.9.3
 [1.9.0]: https://github.com/codaamok/codaamok.build/compare/1.8.1..1.9.0
 [1.8.1]: https://github.com/codaamok/codaamok.build/compare/1.7.3..1.8.1
 [1.7.3]: https://github.com/codaamok/codaamok.build/compare/1.7.1..1.7.3
