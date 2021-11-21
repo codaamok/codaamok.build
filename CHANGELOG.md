@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Added
+- Added custom pre and post build tasks to `invoke.build.ps1` and also included `custom.build.ps1` which drives project-specific custom pre and post buildactions
 
 ## [1.7.3] - 2021-11-21
 ### Changed

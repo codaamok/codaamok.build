@@ -1,3 +1,10 @@
+<#
+.SYNOPSIS
+    Build script which leverages the InvokeBuild module.
+.DESCRIPTION
+    Build script which leverages the InvokeBuild module.
+    This build script is used in the build pipeline and local development for building this project.
+#>
 [CmdletBinding()]
 param (
     [Parameter(Mandatory)]
@@ -21,6 +28,7 @@ param (
 # Synopsis: Initiate the build process
 task . ImportBuildModule,
     InitaliseBuildDirectory,
+    CustomPreBuildTask,
     CopyChangeLog,
     UpdateChangeLog,
     CreateRootModule,
@@ -28,7 +36,18 @@ task . ImportBuildModule,
     UpdateModuleManifest,
     CreateArchive,
     UpdateDocs,
-    UpdateProjectRepo
+    UpdateProjectRepo,
+    CustomPostBuildTask
+
+# Synopsis: Invoke project-specific pre-build custom actions
+task CustomPreBuildTask -If (Test-Path "$BuildRoot\custom.build.ps1") {
+    Invoke-Build -File "$BuildRoot\custom.build.ps1" -Task Pre
+}
+
+# Synopsis: Invoke project-specific post-build custom actions
+task CustomPostBuildTask -If (Test-Path "$BuildRoot\custom.build.ps1") {
+    Invoke-Build -File "$BuildRoot\custom.build.ps1" -Task Post
+}
 
 # Synopsis: Install dependent build modules
 task InstallDependencies {
@@ -82,34 +101,6 @@ task InitaliseBuildDirectory {
     Copy-Item -Path $BuildRoot\$Script:ModuleName\en-US -Destination $BuildRoot\build\$Script:ModuleName -Recurse
     $Script:ManifestFile = Copy-Item -Path $BuildRoot\$Script:ModuleName\$Script:ModuleName.psd1 -Destination $BuildRoot\build\$Script:ModuleName\$Script:ModuleName.psd1 -PassThru
 }
-
-<# Synopsis: Determine version number to build with
-task GetVersionToBuild {
-    $Params = @{
-        NewRelease = $Script:NewRelease
-    }
-
-    if ($Script:CommitMessage -match 'Version to build:') {
-        if ($Script:CommitMessage -match '^Version to build: (\d+\.\d+\.\d+)$') {
-            $Params["VersionToBuild"] = $Matches[1]
-        }
-        else {
-            throw "Unable to parse version number from commit message '$Script:CommitMessage'"
-        }
-    }
-    else {
-        $Params["ModuleName"]    = $Script:ModuleName
-        $Params["ManifestData"]  = Import-PowerShellDataFile -Path ("{0}\{1}\{1}.psd1" -f $BuildRoot, $Script:ModuleName)
-        $Params["ChangeLogData"] = $Script:ChangeLogData
-    }
-
-    $Script:VersionToBuild = Get-BuildVersionNumber @Params
-
-    New-BuildEnvironmentVariable -Platform "GitHubActions" -Variable @{
-        "VersionToBuild" = $Script:VersionToBuild.ToString()
-    }
-}
-#>
 
 # Synopsis: Get change log data, copy it to the build directory, and create releasenotes.txt
 task CopyChangeLog {
