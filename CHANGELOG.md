@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.7.3] - 2021-11-21
 ### Changed
 - Some improvements to `Update-BuildFiles` so I no longer need to hard code new typical project files
 
@@ -65,7 +67,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.7.1..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.7.3..HEAD
+[1.7.3]: https://github.com/codaamok/codaamok.build/compare/1.7.1..1.7.3
 [1.7.1]: https://github.com/codaamok/codaamok.build/compare/1.7.0..1.7.1
 [1.7.0]: https://github.com/codaamok/codaamok.build/compare/1.6.7..1.7.0
 [1.6.7]: https://github.com/codaamok/codaamok.build/compare/1.6.6..1.6.7
