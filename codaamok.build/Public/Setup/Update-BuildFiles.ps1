@@ -17,52 +17,23 @@ function Update-BuildFiles {
 
     $Module = Get-Module "codaamok.build"
 
-    # Check for files within the ModuleBase directory aswell the Files subfolder in case this command is being used during development of codaamok.build itself
-    @(
-        [PSCustomObject]@{
-            File = "{0}\invoke.build.ps1" -f $Module.ModuleBase
-            DestinationPath = $DestinationPath
-        },
-        [PSCustomObject]@{
-            File = "{0}\Files\invoke.build.ps1" -f $Module.ModuleBase
-            DestinationPath = $DestinationPath
-        },
-        [PSCustomObject]@{
-            File = "{0}\build.yml" -f $Module.ModuleBase
-            DestinationPath = "{0}\.github\workflows" -f $DestinationPath
-        },
-        [PSCustomObject]@{
-            File = "{0}\Files\build.yml" -f $Module.ModuleBase
-            DestinationPath = "{0}\.github\workflows" -f $DestinationPath
-        },
-        [PSCustomObject]@{
-            File = "{0}\CONTRIBUTING.md" -f $Module.ModuleBase
-            DestinationPath = $DestinationPath
-        },
-        [PSCustomObject]@{
-            File = "{0}\Files\CONTRIBUTING.md" -f $Module.ModuleBase
-            DestinationPath = $DestinationPath
-        },
-        [PSCustomObject]@{
-            File = "{0}\GitVersion.yml" -f $Module.ModuleBase
-            DestinationPath = $DestinationPath
-        },
-        [PSCustomObject]@{
-            File = "{0}\Files\GitVersion.yml" -f $Module.ModuleBase
-            DestinationPath = $DestinationPath
-        },
-        [PSCustomObject]@{
-            File = "{0}\.gitignore" -f $Module.ModuleBase
-            DestinationPath = $DestinationPath
-        },
-        [PSCustomObject]@{
-            File = "{0}\Files\.gitignore" -f $Module.ModuleBase
-            DestinationPath = $DestinationPath
+    # FileList property could be empty if imported the non-released module manifest during development
+    if ([String]::IsNullOrWhiteSpace($MOdule.FileList)) {
+        $Module = [PSCustomObject]@{
+            FileList = Get-ChildItem -Path "$($Module.ModuleBase)\Files" | Select-Object -ExpandProperty FullName
         }
-    ) | ForEach-Object {
-        if (Test-Path $_.File) {
-            $null = New-Item -Path $_.DestinationPath -ItemType "Directory" -Force
-            Copy-Item -Path $_.File -Destination $_.DestinationPath -Confirm
+    }
+
+    switch -Regex ($Module.FileList) {
+        "build\.yml$" {
+            $Destination = "{0}\.github\workflows" -f $DestinationPath
+            if (-not (Test-Path $Destination)) {
+                $null = New-Item -Path $Destination -ItemType "Directory" -Force
+            }
+            Copy-Item -Path $_ -Destination $Destination -Confirm
+        }
+        default {
+            Copy-Item -Path $_ -Destination $DestinationPath -Confirm
         }
     }
 }

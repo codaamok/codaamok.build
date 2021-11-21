@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Changed
+- Some improvements to `Update-BuildFiles` so I no longer need to hard code new typical project files
 
 ## [1.7.1] - 2021-11-20
 ### Fixed
