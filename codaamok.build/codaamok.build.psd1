@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.8.1'
+ModuleVersion = '1.9.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -107,10 +107,8 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = '# Added
-- Added custom pre and post build tasks to invoke.build.ps1 and also included custom.build.ps1 which drives project-specific custom pre and post buildactions
-# Fixed
-- Fixed GitHub Actions workflow build.yml to reference correct build.ps1 now that there are multiple (custom.build.ps1 + invoke.build.ps1)'
+        ReleaseNotes = '# Changed
+- Added parameters to custom.build.ps1'
 
         # Prerelease string of this module
         # Prerelease = ''
