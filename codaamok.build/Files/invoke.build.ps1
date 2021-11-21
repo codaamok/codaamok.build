@@ -19,10 +19,10 @@ param (
     [String]$Version,
 
     [Parameter()]
-    [Bool]$UpdateDocs = $false,
+    [Bool]$NewRelease = $false,
 
     [Parameter()]
-    [Bool]$NewRelease = $false
+    [Bool]$UpdateDocs = $false
 )
 
 # Synopsis: Initiate the build process
@@ -41,12 +41,12 @@ task . ImportBuildModule,
 
 # Synopsis: Invoke project-specific pre-build custom actions
 task CustomPreBuildTask -If (Test-Path "$BuildRoot\custom.build.ps1") {
-    Invoke-Build -File "$BuildRoot\custom.build.ps1" -Task Pre
+    Invoke-Build -File "$BuildRoot\custom.build.ps1" -Task Pre -ModuleName $ModuleName -Author $Author -NewRelease $NewRelease
 }
 
 # Synopsis: Invoke project-specific post-build custom actions
 task CustomPostBuildTask -If (Test-Path "$BuildRoot\custom.build.ps1") {
-    Invoke-Build -File "$BuildRoot\custom.build.ps1" -Task Post
+    Invoke-Build -File "$BuildRoot\custom.build.ps1" -Task Post -ModuleName $ModuleName -Author $Author -NewRelease $NewRelease
 }
 
 # Synopsis: Install dependent build modules

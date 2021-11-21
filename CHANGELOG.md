@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Changed
+- Added parameters to custom.build.ps1
 
 ## [1.8.1] - 2021-11-21
 ### Added
