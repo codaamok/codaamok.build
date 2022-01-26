@@ -20,7 +20,7 @@ function Export-RootModule {
 
     $null = New-Item -Path $RootModule -ItemType "File" -Force
 
-    foreach ($FunctionType in "Private","Public") {
+    foreach ($FunctionType in "Private","Public","Types") {
         '#region {0} functions' -f $FunctionType | Add-Content -Path $RootModule
 
         $Files = @(Get-ChildItem $DevModulePath\$FunctionType -Filter *.ps1 -Recurse)

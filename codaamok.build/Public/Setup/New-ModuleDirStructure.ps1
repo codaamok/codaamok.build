@@ -42,6 +42,7 @@ function New-ModuleDirStructure {
         "$Path\$ModuleName\Files",
         "$Path\$ModuleName\Private",
         "$Path\$ModuleName\Public",
+        "$Path\$ModuleName\Types",
         "$Path\$ModuleName\en-US"
     ) | ForEach-Object {
         New-Item -Path $_ -ItemType Directory -Force

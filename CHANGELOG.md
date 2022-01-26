@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Added
+- Added Types Folder to `Export-RootModule` and `New-ModuleDirStrcuture`
 
 ## [1.9.3] - 2021-11-21
 ### Added
