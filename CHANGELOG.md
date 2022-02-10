@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.10.2] - 2022-02-10
 ### Changed
 - No longer reference `gitversion` as `gitversion.exe` in `invoke.build.ps1` for better x-platform compatability
 
@@ -92,7 +94,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.10.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.10.2..HEAD
+[1.10.2]: https://github.com/codaamok/codaamok.build/compare/1.10.0..1.10.2
 [1.10.0]: https://github.com/codaamok/codaamok.build/compare/1.9.3..1.10.0
 [1.9.3]: https://github.com/codaamok/codaamok.build/compare/1.9.0..1.9.3
 [1.9.0]: https://github.com/codaamok/codaamok.build/compare/1.8.1..1.9.0
