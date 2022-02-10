@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Changed
+- No longer reference `gitversion` as `gitversion.exe` in `invoke.build.ps1` for better x-platform compatability
 
 ## [1.10.0] - 2022-01-26
 ### Added
