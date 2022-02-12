@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [2.0.16] - 2022-02-12
 - `Update-BuildFiles` did not copy `gitignore` with the leading period... again... ffs
 
 ## [2.0.13] - 2022-02-12
@@ -120,7 +122,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/2.0.13..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/2.0.16..HEAD
+[2.0.16]: https://github.com/codaamok/codaamok.build/compare/2.0.13..2.0.16
 [2.0.13]: https://github.com/codaamok/codaamok.build/compare/2.0.11..2.0.13
 [2.0.11]: https://github.com/codaamok/codaamok.build/compare/2.0.9..2.0.11
 [2.0.9]: https://github.com/codaamok/codaamok.build/compare/2.0.5..2.0.9
