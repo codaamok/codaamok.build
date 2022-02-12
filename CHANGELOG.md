@@ -3,6 +3,7 @@
 - Updated `.gitignore` to include `.DS_Store`
 
 ### Fixed
+- Module manifests can not have files in `FileList` (leading?) with periods, so changed `.gitignore` to `gitignore` and updated `Update-BuildFiles` to insert the period when copying
 - Now `Update-BuildFiles` and `invoke.build.ps1` include hidden files for the `FileList` property
 
 ## [2.0.9] - 2022-02-12

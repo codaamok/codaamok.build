@@ -1,4 +1,0 @@
-build/*
-!*.gitkeep
-release/*
-.DS_Store
