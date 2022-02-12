@@ -2,6 +2,8 @@ name: "Create GitHub release and publish to the PowerShell Gallery"
 
 on: 
   push:
+    paths:
+      - 'src/**'
     branches:
       - main
       - master
