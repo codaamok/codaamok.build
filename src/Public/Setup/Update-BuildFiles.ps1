@@ -20,7 +20,7 @@ function Update-BuildFiles {
     # FileList property could be empty if imported the non-released module manifest during development
     if ([String]::IsNullOrWhiteSpace($MOdule.FileList)) {
         $Module = [PSCustomObject]@{
-            FileList = Get-ChildItem -Path "$($Module.ModuleBase)\Files" | Select-Object -ExpandProperty FullName
+            FileList = Get-ChildItem -Path "$($Module.ModuleBase)\Files" -Force | Select-Object -ExpandProperty FullName
         }
     }
 

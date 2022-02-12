@@ -7,7 +7,7 @@
             "label": "Build",
             "type": "process",
             "command": "pwsh",
-            "args": ["-noprofile","-command","Import-Module", "./codaamok.build/codaamok.build.psd1", ";", "Invoke-Build","-File","./invoke.build.ps1","-Author","'codaamok'","-ModuleName","'codaamok.build'"],
+            "args": ["-noprofile","-command","Import-Module", "./src/codaamok.build.psd1", ";", "Invoke-Build","-File","./invoke.build.ps1","-Author","'codaamok'","-ModuleName","'codaamok.build'"],
             "group": "build",
             "presentation": {
                 "echo": true,

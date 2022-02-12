@@ -1,4 +1,9 @@
 ## [Unreleased]
+### Added
+- Updated `.gitignore` to include `.DS_Store`
+
+### Fixed
+- Now `Update-BuildFiles` and `invoke.build.ps1` include hidden files for the `FileList` property
 
 ## [2.0.9] - 2022-02-12
 ### Fixed

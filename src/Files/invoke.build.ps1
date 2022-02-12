@@ -82,7 +82,7 @@ task InitaliseBuildDirectory {
     }
 
     if (Test-Path -Path $BuildRoot\src\Files\*) {
-        $Script:FileList = Copy-Item -Path $BuildRoot\src\Files\* -Destination $BuildRoot\build\$Script:ModuleName -Recurse -PassThru
+        $Script:FileList = Copy-Item -Path $BuildRoot\src\Files\* -Destination $BuildRoot\build\$Script:ModuleName -Recurse -Force -PassThru
     }
 
     Copy-Item -Path $BuildRoot\LICENSE -Destination $BuildRoot\build\$Script:ModuleName\LICENSE
