@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.11'
+ModuleVersion = '2.0.13'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -107,11 +107,8 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = '# Added
-- Updated .gitignore to include .DS_Store
-# Fixed
-- Module manifests can not have files in FileList (leading?) with periods, so changed .gitignore to gitignore and updated Update-BuildFiles to insert the period when copying
-- Now Update-BuildFiles and invoke.build.ps1 include hidden files for the FileList property'
+        ReleaseNotes = '# Fixed
+- Update-BuildFiles did not copy gitignore with the leading period'
 
         # Prerelease string of this module
         # Prerelease = ''
