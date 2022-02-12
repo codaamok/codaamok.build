@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [2.0.11] - 2022-02-12
 ### Added
 - Updated `.gitignore` to include `.DS_Store`
 
@@ -113,7 +115,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/2.0.9..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/2.0.11..HEAD
+[2.0.11]: https://github.com/codaamok/codaamok.build/compare/2.0.9..2.0.11
 [2.0.9]: https://github.com/codaamok/codaamok.build/compare/2.0.5..2.0.9
 [2.0.5]: https://github.com/codaamok/codaamok.build/compare/1.10.2..2.0.5
 [1.10.2]: https://github.com/codaamok/codaamok.build/compare/1.10.0..1.10.2
