@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.5'
+ModuleVersion = '2.0.9'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -108,7 +108,7 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = '# Fixed
-- Updated workflow to use the new src directory'
+- Fixed typo in CONTRIBUTING.md'
 
         # Prerelease string of this module
         # Prerelease = ''

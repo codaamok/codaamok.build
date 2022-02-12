@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [2.0.9] - 2022-02-12
 ### Fixed
 - Fixed typo in `CONTRIBUTING.md`
 
@@ -105,7 +107,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/2.0.5..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/2.0.9..HEAD
+[2.0.9]: https://github.com/codaamok/codaamok.build/compare/2.0.5..2.0.9
 [2.0.5]: https://github.com/codaamok/codaamok.build/compare/1.10.2..2.0.5
 [1.10.2]: https://github.com/codaamok/codaamok.build/compare/1.10.0..1.10.2
 [1.10.0]: https://github.com/codaamok/codaamok.build/compare/1.9.3..1.10.0
