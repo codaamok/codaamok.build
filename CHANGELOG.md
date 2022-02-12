@@ -3,16 +3,19 @@
 ## [2.0.5] - 2022-02-12
 ### Fixed
 - Updated workflow to use the new `src` directory
+- Corrected reference to new `src` directory in workflow yaml
+
+### Changed
+- Instead of storing module source code in a folder at the root of a project repository named the same as the module, build scripts and functions now expect source code to be in a named folder `src` instead. Still at the root of a project repository.
+- Function `New-ModuleDirStructure` now also creates `tests` directory. Also updated the function to create folder containing module source code in `src` instead of the module name
 
 ## [1.10.2] - 2022-02-10
 ### Changed
-- Instead of storing module source code in a folder at the root of a project repostiroy named the same as the module, build scripts and functions now expect source code to be in a named folder `src` instead. Still at the root of a project repository.
-- Function `New-ModuleDirStructure` now also creates `tests` directory. Also updated the function to create folder containing module source code in `src` instead of the module name
-- No longer reference `gitversion` as `gitversion.exe` in `invoke.build.ps1` for better x-platform compatability
+- No longer reference `gitversion` as `gitversion.exe` in `invoke.build.ps1` for better x-platform compatibility
 
 ## [1.10.0] - 2022-01-26
 ### Added
-- Added Types Folder to `Export-RootModule` and `New-ModuleDirStrcuture`
+- Added Types Folder to `Export-RootModule` and `New-ModuleDirStructure`
 
 ## [1.9.3] - 2021-11-21
 ### Added
@@ -28,7 +31,7 @@
 
 ## [1.8.1] - 2021-11-21
 ### Added
-- Added custom pre and post build tasks to `invoke.build.ps1` and also included `custom.build.ps1` which drives project-specific custom pre and post buildactions
+- Added custom pre and post build tasks to `invoke.build.ps1` and also included `custom.build.ps1` which drives project-specific custom pre and post build actions
 
 ### Fixed
 - Fixed GitHub Actions workflow `build.yml` to reference correct build.ps1 now that there are multiple (custom.build.ps1 + invoke.build.ps1)
@@ -93,7 +96,7 @@
 - Removed requirement to use emoji :shipit: in commit message for pipeline to start - was pointless if I wanted to allow ad-hoc use of the pipeline via workflow dispatch
 
 ### Fixed
-- Export-UnreleasedNotes threw excpetion when trying to print (an array of) release notes to the verbose output stream
+- Export-UnreleasedNotes threw exception when trying to print (an array of) release notes to the verbose output stream
 - Export-UnreleasedNotes constantly wrote 'None' to the release notes and did not use the change log data
 
 ## [1.0.0] - 2021-09-18
