@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [1.10.2] - 2022-02-10
 ### Changed
 - Instead of storing module source code in a folder at the root of a project repostiroy named the same as the module, build scripts and functions now expect source code to be in a named folder `src` instead. Still at the root of a project repository.
 - Function `New-ModuleDirStructure` now also creates `tests` directory. Also updated the function to create folder containing module source code in `src` instead of the module name
@@ -94,7 +96,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.10.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/1.10.2..HEAD
+[1.10.2]: https://github.com/codaamok/codaamok.build/compare/1.10.0..1.10.2
 [1.10.0]: https://github.com/codaamok/codaamok.build/compare/1.9.3..1.10.0
 [1.9.3]: https://github.com/codaamok/codaamok.build/compare/1.9.0..1.9.3
 [1.9.0]: https://github.com/codaamok/codaamok.build/compare/1.8.1..1.9.0
