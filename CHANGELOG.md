@@ -1,5 +1,7 @@
 ## [Unreleased]
 ### Changed
+- Instead of storing module source code in a folder at the root of a project repostiroy named the same as the module, build scripts and functions now expect source code to be in a named folder `src` instead. Still at the root of a project repository.
+- Function `New-ModuleDirStructure` now also creates `tests` directory. Also updated the function to create folder containing module source code in `src` instead of the module name
 - No longer reference `gitversion` as `gitversion.exe` in `invoke.build.ps1` for better x-platform compatability
 
 ## [1.10.0] - 2022-01-26
