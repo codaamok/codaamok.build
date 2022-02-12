@@ -88,7 +88,7 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git add CHANGELOG.md ${GH_PROJECTNAME}/${GH_PROJECTNAME}.psd1 docs
+          git add CHANGELOG.md src/${GH_PROJECTNAME}.psd1 docs
           git commit -m "Released ${{ env.GitVersion_SemVer }}"
       
       - name: Push commit
