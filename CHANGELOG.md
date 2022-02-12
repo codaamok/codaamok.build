@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- Fixed typo in `CONTRIBUTING.md`
 
 ## [2.0.5] - 2022-02-12
 ### Fixed
