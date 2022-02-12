@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.0.16'
+ModuleVersion = '2.0.18'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -107,7 +107,8 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'None'
+        ReleaseNotes = '# Fixed
+- Update-BuildFiles did not copy gitignore with the leading period... again... ffs'
 
         # Prerelease string of this module
         # Prerelease = ''
