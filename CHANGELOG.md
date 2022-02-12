@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- Updated workflow to use the new `src` directory
 
 ## [1.10.2] - 2022-02-10
 ### Changed
