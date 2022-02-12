@@ -1,5 +1,6 @@
 ## [Unreleased]
 ### Fixed
+- `Update-BuildFiles` did not copy `gitignore` with the leading period... again... ffs
 - `Update-BuildFiles` did not copy `gitignore` with the leading period
 
 ## [2.0.11] - 2022-02-12

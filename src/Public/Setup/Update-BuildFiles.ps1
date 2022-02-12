@@ -18,7 +18,7 @@ function Update-BuildFiles {
     $Module = Get-Module "codaamok.build"
 
     # FileList property could be empty if imported the non-released module manifest during development
-    if ([String]::IsNullOrWhiteSpace($MOdule.FileList)) {
+    if ([String]::IsNullOrWhiteSpace($Module.FileList)) {
         $Module = [PSCustomObject]@{
             FileList = Get-ChildItem -Path "$($Module.ModuleBase)\Files" -Force | Select-Object -ExpandProperty FullName
         }
@@ -32,7 +32,7 @@ function Update-BuildFiles {
             }
             Copy-Item -Path $_ -Destination $Destination -Confirm
         }
-        "^gitignore$" {
+        "gitignore$" {
             $Destination = "{0}\.{1}" -f $DestinationPath, $_
             Copy-Item -Path $_ -Destination $Destination -Confirm
         }
