@@ -34,7 +34,7 @@ function Update-BuildFiles {
         }
         "^gitignore$" {
             $Destination = "{0}\.{1}" -f $DestinationPath, $_
-            Copy-Item -Path $_ -Destination $DestinationPath -Confirm
+            Copy-Item -Path $_ -Destination $Destination -Confirm
         }
         default {
             Copy-Item -Path $_ -Destination $DestinationPath -Confirm
