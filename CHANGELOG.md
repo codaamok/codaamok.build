@@ -1,4 +1,11 @@
 ## [Unreleased]
+### Added
+- `Update-BuildFiles` deletes `build.yml` if it exists (due to its rename to `pipeline.yml`)
+
+### Changed
+- Workflow `pipeline.yml` now has conditional steps applied to steps related to deployment, whereas steps related to build and testing do not. This allows to run daily builds and (optional) integration testing, and only execute deployment related tasks if workflow was invoked via `push` or `workflow_dispatch`.
+- Workflow `pipeline.yml` now runs on a schedule: 11 7 * * *
+- Renamed workflow name and file from `build.yml` to `pipeline.yml`
 
 ## [2.1.0] - 2022-02-26
 ### Added

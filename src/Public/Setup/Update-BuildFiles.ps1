@@ -26,6 +26,10 @@ function Update-BuildFiles {
 
     switch -Regex ($Module.FileList) {
         "build\.yml$" {
+            $Path = "{0}\.github\workflows\build.yml" -f $DestinationPath
+            Remove-Item -Path $Path -Confirm
+        }
+        "pipeline\.yml$" {
             $Destination = "{0}\.github\workflows" -f $DestinationPath
             if (-not (Test-Path $Destination)) {
                 $null = New-Item -Path $Destination -ItemType "Directory" -Force
