@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [2.1.0] - 2022-02-26
 ### Added
 - New conditional step in build workflow if `tests/invoke.tests.ps1` exists
 
@@ -128,7 +130,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/2.0.18..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/2.1.0..HEAD
+[2.1.0]: https://github.com/codaamok/codaamok.build/compare/2.0.18..2.1.0
 [2.0.18]: https://github.com/codaamok/codaamok.build/compare/2.0.16..2.0.18
 [2.0.16]: https://github.com/codaamok/codaamok.build/compare/2.0.13..2.0.16
 [2.0.13]: https://github.com/codaamok/codaamok.build/compare/2.0.11..2.0.13
