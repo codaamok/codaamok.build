@@ -51,6 +51,10 @@ jobs:
           Invoke-Build -File "custom.build.ps1" @Params -Task PostBuild
         shell: pwsh
 
+      - name: Pester Tests
+        if: hashFiles('tests/invoke.tests.ps1') != ''
+        run: pwsh -File "tests/invoke.tests.ps1"
+
       - name: Custom pre-release tasks
         run: Invoke-Build -File "custom.build.ps1" -ModuleName $env:GH_PROJECTNAME -Author $env:GH_USERNAME -Version $env:GitVersion_SemVer -NewRelease $true -Task PreRelease
         shell: pwsh
