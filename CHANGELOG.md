@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [3.0.1] - 2022-02-26
 ### Added
 - `Update-BuildFiles` deletes `build.yml` if it exists (due to its rename to `pipeline.yml`)
 
@@ -137,7 +139,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/2.1.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.0.1..HEAD
+[3.0.1]: https://github.com/codaamok/codaamok.build/compare/2.1.0..3.0.1
 [2.1.0]: https://github.com/codaamok/codaamok.build/compare/2.0.18..2.1.0
 [2.0.18]: https://github.com/codaamok/codaamok.build/compare/2.0.16..2.0.18
 [2.0.16]: https://github.com/codaamok/codaamok.build/compare/2.0.13..2.0.16

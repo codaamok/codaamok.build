@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '2.1.0'
+ModuleVersion = '3.0.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -108,7 +108,11 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = '# Added
-- New conditional step in build workflow if tests/invoke.tests.ps1 exists'
+- Update-BuildFiles deletes build.yml if it exists (due to its rename to pipeline.yml)
+# Changed
+- Workflow pipeline.yml now has conditional steps applied to steps related to deployment, whereas steps related to build and testing do not. This allows to run daily builds and (optional) integration testing, and only execute deployment related tasks if workflow was invoked via push or workflow_dispatch.
+- Workflow pipeline.yml now runs on a schedule: 11 7 * * *
+- Renamed workflow name and file from build.yml to pipeline.yml'
 
         # Prerelease string of this module
         # Prerelease = ''
