@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Added
+- New conditional step in build workflow if `tests/invoke.tests.ps1` exists
 
 ## [2.0.18] - 2022-02-12
 ### Fixed
