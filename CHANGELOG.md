@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [3.0.2] - 2022-02-27
 ### Fixed
 - Workflow step `Build` failed on scheduled-only runs due to empty changelog
 
@@ -141,7 +143,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.0.1..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.0.2..HEAD
+[3.0.2]: https://github.com/codaamok/codaamok.build/compare/3.0.1..3.0.2
 [3.0.1]: https://github.com/codaamok/codaamok.build/compare/2.1.0..3.0.1
 [2.1.0]: https://github.com/codaamok/codaamok.build/compare/2.0.18..2.1.0
 [2.0.18]: https://github.com/codaamok/codaamok.build/compare/2.0.16..2.0.18
