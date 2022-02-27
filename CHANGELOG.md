@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Added
+- `Update-BuildFiles` will not update `pipeline.yml` if the first line of the file differs with the target file. This helps prevent accidental clobbering when a project might use a customised workflow.
 
 ## [3.0.2] - 2022-02-27
 ### Fixed

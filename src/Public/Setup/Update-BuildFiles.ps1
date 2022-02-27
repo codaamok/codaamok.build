@@ -32,8 +32,17 @@ function Update-BuildFiles {
     switch -Regex ($Module.FileList) {
         "pipeline\.yml$" {
             $Destination = "{0}\.github\workflows" -f $DestinationPath
+            $File = "{0}\pipeline.yml" -f $Destination
             if (-not (Test-Path $Destination)) {
                 $null = New-Item -Path $Destination -ItemType "Directory" -Force
+            }
+            elseif (Test-Path $File) {
+                $TargetFirstLine = Get-Content $File -TotalCount 1
+                $SourceFirstLine = Get-Content $_ -TotalCount 1
+                if ($TargetFirstLine -ne $SourceFirstLine) {
+                    Write-Warning -Message 'Will not update pipeline.yml as it appears to be customised (indicated by reading the first line)'
+                    continue
+                }
             }
             Copy-Item -Path $_ -Destination $Destination -Confirm
         }
