@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [3.1.0] - 2022-02-27
 ### Added
 - `Update-BuildFiles` will not update `pipeline.yml` if the first line of the file differs with the target file. This helps prevent accidental clobbering when a project might use a customised workflow.
 
@@ -145,7 +147,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.0.2..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.1.0..HEAD
+[3.1.0]: https://github.com/codaamok/codaamok.build/compare/3.0.2..3.1.0
 [3.0.2]: https://github.com/codaamok/codaamok.build/compare/3.0.1..3.0.2
 [3.0.1]: https://github.com/codaamok/codaamok.build/compare/2.1.0..3.0.1
 [2.1.0]: https://github.com/codaamok/codaamok.build/compare/2.0.18..2.1.0

@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '3.0.2'
+ModuleVersion = '3.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -107,8 +107,8 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = '# Fixed
-- Workflow step Build failed on scheduled-only runs due to empty changelog'
+        ReleaseNotes = '# Added
+- Update-BuildFiles will not update pipeline.yml if the first line of the file differs with the target file. This helps prevent accidental clobbering when a project might use a customised workflow.'
 
         # Prerelease string of this module
         # Prerelease = ''
