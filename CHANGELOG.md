@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- Workflow step `Build` failed on scheduled-only runs due to empty changelog
 
 ## [3.0.1] - 2022-02-26
 ### Added

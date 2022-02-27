@@ -8,7 +8,7 @@ on:
       - main
       - master
   schedule:
-    - cron: '11 7 * * *'
+    - cron: '33 8 * * *'
   workflow_dispatch:
 
 jobs:
@@ -46,12 +46,14 @@ jobs:
             ModuleName = $env:GH_PROJECTNAME
             Author     = $env:GH_USERNAME
             Version    = $env:GitVersion_SemVer
-            NewRelease = $true
+            NewRelease = ('push','workflow_dispatch' -contains $env:EVENT_NAME)
           }
           Invoke-Build -File "custom.build.ps1" @Params -Task PreBuild
           Invoke-Build -File "invoke.build.ps1" @Params
           Invoke-Build -File "custom.build.ps1" @Params -Task PostBuild
         shell: pwsh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
 
       - name: Pester Tests
         if: hashFiles('tests/invoke.tests.ps1') != ''
