@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [3.1.1] - 2022-03-01
 ### Added
 - Added `testResults.xml` to `.gitignore`
 
@@ -149,7 +151,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.1.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.1.1..HEAD
+[3.1.1]: https://github.com/codaamok/codaamok.build/compare/3.1.0..3.1.1
 [3.1.0]: https://github.com/codaamok/codaamok.build/compare/3.0.2..3.1.0
 [3.0.2]: https://github.com/codaamok/codaamok.build/compare/3.0.1..3.0.2
 [3.0.1]: https://github.com/codaamok/codaamok.build/compare/2.1.0..3.0.1
