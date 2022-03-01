@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Added
+- Added `testResults.xml` to `.gitignore`
 
 ## [3.1.0] - 2022-02-27
 ### Added
