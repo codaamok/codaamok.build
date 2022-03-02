@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [3.1.2] - 2022-03-02
 ### Fixed
 - Build script did not creat the `Process.ps1` script file (for ScriptsToProcess) even if scripts existed under `src\ScriptsToProcess`
 
@@ -153,7 +155,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.1.1..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.1.2..HEAD
+[3.1.2]: https://github.com/codaamok/codaamok.build/compare/3.1.1..3.1.2
 [3.1.1]: https://github.com/codaamok/codaamok.build/compare/3.1.0..3.1.1
 [3.1.0]: https://github.com/codaamok/codaamok.build/compare/3.0.2..3.1.0
 [3.0.2]: https://github.com/codaamok/codaamok.build/compare/3.0.1..3.0.2
