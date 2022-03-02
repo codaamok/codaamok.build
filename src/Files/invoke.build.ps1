@@ -116,7 +116,7 @@ task CreateRootModule {
 }
 
 # Synopsis: Create a single Process.ps1 script file for all script files under ScriptsToProcess\* (if any)
-task CreateProcessScript -If (Test-Path -Path ("{0}\src\ScriptsToProcess" -f $BuildRoot) -Include "*.ps1") {
+task CreateProcessScript -If (Test-Path -Path ("{0}\src\ScriptsToProcess\*" -f $BuildRoot) -Include "*.ps1") {
     Export-ScriptsToProcess -Path ("{0}\src\ScriptsToProcess" -f $BuildRoot)
     $Script:ProcessScript = $true
 }

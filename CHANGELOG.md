@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- Build script did not creat the `Process.ps1` script file (for ScriptsToProcess) even if scripts existed under `src\ScriptsToProcess`
 
 ## [3.1.1] - 2022-03-01
 ### Added
