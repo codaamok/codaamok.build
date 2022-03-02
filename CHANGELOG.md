@@ -1,8 +1,13 @@
 ## [Unreleased]
+### Added
+- New mandatory parameter `-File` for `Export-ScriptsToProcess`; must provide a scalar or array object of `[System.IO.FileSystemInfo]` as the file(s) you want concatenated into a single file.
+
+### Fixed
+- Actually fixed the `Process.ps1` ScriptsToProcess issue, by fixing incorrect script scope variable reference in `Export-ScriptsToProcess`
 
 ## [3.1.2] - 2022-03-02
 ### Fixed
-- Build script did not creat the `Process.ps1` script file (for ScriptsToProcess) even if scripts existed under `src\ScriptsToProcess`
+- Build script did not create the `Process.ps1` script file (for ScriptsToProcess) even if scripts existed under `src\ScriptsToProcess`
 
 ## [3.1.1] - 2022-03-01
 ### Added
