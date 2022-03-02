@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [4.0.0] - 2022-03-02
 ### Added
 - New mandatory parameter `-File` for `Export-ScriptsToProcess`; must provide a scalar or array object of `[System.IO.FileSystemInfo]` as the file(s) you want concatenated into a single file.
 
@@ -160,7 +162,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/3.1.2..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.0..HEAD
+[4.0.0]: https://github.com/codaamok/codaamok.build/compare/3.1.2..4.0.0
 [3.1.2]: https://github.com/codaamok/codaamok.build/compare/3.1.1..3.1.2
 [3.1.1]: https://github.com/codaamok/codaamok.build/compare/3.1.0..3.1.1
 [3.1.0]: https://github.com/codaamok/codaamok.build/compare/3.0.2..3.1.0

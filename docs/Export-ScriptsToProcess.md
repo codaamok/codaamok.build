@@ -14,7 +14,7 @@ Create a single Process.ps1 script file for all script files under ScriptsToProc
 ## SYNTAX
 
 ```
-Export-ScriptsToProcess [-Path] <String[]> [<CommonParameters>]
+Export-ScriptsToProcess [-File] <FileSystemInfo[]> [-Path] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,16 +30,31 @@ Explanation of what the example does
 
 ## PARAMETERS
 
-### -Path
-{{ Fill Path Description }}
+### -File
+{{ Fill File Description }}
 
 ```yaml
-Type: String[]
+Type: FileSystemInfo[]
 Parameter Sets: (All)
 Aliases:
 
 Required: True
 Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Path
+{{ Fill Path Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

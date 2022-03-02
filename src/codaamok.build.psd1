@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '3.1.2'
+ModuleVersion = '4.0.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -107,8 +107,10 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = '# Fixed
-- Build script did not creat the Process.ps1 script file (for ScriptsToProcess) even if scripts existed under src\ScriptsToProcess'
+        ReleaseNotes = '# Added
+- New mandatory parameter -File for Export-ScriptsToProcess; must provide a scalar or array object of [System.IO.FileSystemInfo] as the file(s) you want concatenated into a single file.
+# Fixed
+- Actually fixed the Process.ps1 ScriptsToProcess issue, by fixing incorrect script scope variable reference in Export-ScriptsToProcess'
 
         # Prerelease string of this module
         # Prerelease = ''
