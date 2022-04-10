@@ -54,11 +54,11 @@ function New-ModuleDirStructure {
     }
 
     #Create the module and related files
-    $GitIgnorePath = Join-Path -Path $Path -ChildPath ".gitignore"
+    $GitIgnorePath = "{0}\.gitignore" -f $Path
     $ModuleScript = "{0}.psm1" -f $ModuleName
-    $ModuleScriptPath = Join-Path -Path $Path -ChildPath $ModuleScript
+    $ModuleScriptPath = "{0}\src\{1}" -f $Path, $ModuleScript
     $ModuleManifest = "{0}.psd1" -f $ModuleName
-    $ModuleManifestPath = Join-Path -Path $Path -ChildPath $ModuleManifest
+    $ModuleManifestPath = "{0}\src\{1}" -f $Path, $ModuleManifest
     New-Item $ModuleManifestPath -ItemType File -Force
     @(
         '$Public  = @( Get-ChildItem -Path $PSScriptRoot\Public -Recurse -Filter "*.ps1" )'
@@ -72,7 +72,7 @@ function New-ModuleDirStructure {
         '    }'
         '}'
         'Export-ModuleMember -Function $Public.Basename'
-    ) | Set-Content -Path $ModuleManifestPath -Force
+    ) | Set-Content -Path $ModuleScriptPath -Force
     @(
         'build/*'
         'release/*'
@@ -84,7 +84,7 @@ function New-ModuleDirStructure {
     New-Item $ModuleHelpPath -ItemType File -Force
 
     $NewModuleManifestSplat = @{
-        Path                = Join-Path -Path $Path -ChildPath 'src' | Join-Path -ChildPath $ModuleManifest
+        Path                = $ModuleManifestPath
         RootModule          = $ModuleScript
         Description         = $Description
         PowerShellVersion   = $PowerShellVersion
