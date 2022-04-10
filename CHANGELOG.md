@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [4.0.2] - 2022-04-10
 ### Fixed
 - `New-ModuleDirStructure` failed to correctly create the `about_` text file
 
@@ -164,7 +166,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.2..HEAD
+[4.0.2]: https://github.com/codaamok/codaamok.build/compare/4.0.0..4.0.2
 [4.0.0]: https://github.com/codaamok/codaamok.build/compare/3.1.2..4.0.0
 [3.1.2]: https://github.com/codaamok/codaamok.build/compare/3.1.1..3.1.2
 [3.1.1]: https://github.com/codaamok/codaamok.build/compare/3.1.0..3.1.1
