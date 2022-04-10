@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '4.0.2'
+ModuleVersion = '4.0.3'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -108,7 +108,7 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = '# Fixed
-- New-ModuleDirStructure failed to correctly create the about_ text file'
+- Invoke-BuildClean did not delete sub folders'
 
         # Prerelease string of this module
         # Prerelease = ''

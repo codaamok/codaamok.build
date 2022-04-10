@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [4.0.3] - 2022-04-10
 ### Fixed
 - `Invoke-BuildClean` did not delete sub folders
 
@@ -168,7 +170,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.2..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.3..HEAD
+[4.0.3]: https://github.com/codaamok/codaamok.build/compare/4.0.2..4.0.3
 [4.0.2]: https://github.com/codaamok/codaamok.build/compare/4.0.0..4.0.2
 [4.0.0]: https://github.com/codaamok/codaamok.build/compare/3.1.2..4.0.0
 [3.1.2]: https://github.com/codaamok/codaamok.build/compare/3.1.1..3.1.2
