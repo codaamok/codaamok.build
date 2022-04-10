@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- `Invoke-BuildClean` did not delete sub folders
 
 ## [4.0.2] - 2022-04-10
 ### Fixed
