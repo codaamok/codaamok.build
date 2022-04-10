@@ -79,8 +79,7 @@ function New-ModuleDirStructure {
         '!*.gitkeep'
     ) | Set-Content -Path $GitIgnorePath
 
-    $ModuleHelp = "about_{0}.help.txt" -f $ModuleName
-    $ModuleHelpPath - "{0}\src\en-US\{2}" -f $Path, $ModuleName, $ModuleHelp
+    $ModuleHelpPath = "{0}\src\en-US\about_{1}.help.txt" -f $Path, $ModuleName
     New-Item $ModuleHelpPath -ItemType File -Force
 
     $NewModuleManifestSplat = @{
@@ -104,7 +103,4 @@ function New-ModuleDirStructure {
     }
 
     New-ModuleManifest @NewModuleManifestSplat
-
-    # Copy the public/exported functions into the public folder, private functions into private folder
-
 }

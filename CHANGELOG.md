@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- `New-ModuleDirStructure` failed to correctly create the `about_` text file
 
 ## [4.0.0] - 2022-03-02
 ### Added
