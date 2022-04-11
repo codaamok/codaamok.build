@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- `Invoke-BuildClean` did not create folders after deleting them
 
 ## [4.0.3] - 2022-04-10
 ### Fixed

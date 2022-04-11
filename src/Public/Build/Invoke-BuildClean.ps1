@@ -19,8 +19,6 @@ function Invoke-BuildClean {
         if (Test-Path $item) {
             Remove-Item -Path $item -Exclude ".gitkeep" -Recurse -Force
         }
-        else {
-            $null = New-Item -Path $item -ItemType "Directory" -Force
-        }
+        $null = New-Item -Path $item -ItemType "Directory" -Force
     }
 }
