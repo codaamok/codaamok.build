@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- `invoke.build.ps1` did not correctly recreate the build directory folder structure
 
 ## [4.0.4] - 2022-04-11
 ### Fixed
