@@ -1,5 +1,6 @@
 ## [Unreleased]
 ### Fixed
+- `invoke.build.ps1` did not correctly recreate the build directory folder structure
 - `Invoke-BuildClean` did not create folders after deleting them
 
 ## [4.0.3] - 2022-04-10
