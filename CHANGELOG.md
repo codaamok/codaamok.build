@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [4.0.6] - 2022-04-11
 ### Fixed
 - `invoke.build.ps1` did not correctly recreate the build directory folder structure
 
@@ -177,7 +179,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.4..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.6..HEAD
+[4.0.6]: https://github.com/codaamok/codaamok.build/compare/4.0.4..4.0.6
 [4.0.4]: https://github.com/codaamok/codaamok.build/compare/4.0.3..4.0.4
 [4.0.3]: https://github.com/codaamok/codaamok.build/compare/4.0.2..4.0.3
 [4.0.2]: https://github.com/codaamok/codaamok.build/compare/4.0.0..4.0.2

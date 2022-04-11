@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '4.0.4'
+ModuleVersion = '4.0.6'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -108,7 +108,7 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = '# Fixed
-- Invoke-BuildClean did not create folders after deleting them'
+- invoke.build.ps1 did not correctly recreate the build directory folder structure'
 
         # Prerelease string of this module
         # Prerelease = ''
