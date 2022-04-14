@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Changed
+- Renamed name of worklow from `CI/CD Pipeline` to `Pipeline` for simplified shields.io
 
 ## [4.0.6] - 2022-04-11
 ### Fixed
