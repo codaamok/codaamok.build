@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [4.0.7] - 2022-04-14
 ### Changed
 - Renamed name of worklow from `CI/CD Pipeline` to `Pipeline` for simplified shields.io
 
@@ -181,7 +183,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.6..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.7..HEAD
+[4.0.7]: https://github.com/codaamok/codaamok.build/compare/4.0.6..4.0.7
 [4.0.6]: https://github.com/codaamok/codaamok.build/compare/4.0.4..4.0.6
 [4.0.4]: https://github.com/codaamok/codaamok.build/compare/4.0.3..4.0.4
 [4.0.3]: https://github.com/codaamok/codaamok.build/compare/4.0.2..4.0.3
