@@ -33,7 +33,7 @@ Copyright = '(c) Adam Cook (@codaamok). All rights reserved.'
 Description = 'My PowerShell pipeline build module which contains a bunch of helper functions to aid with PowerShell module deployment'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '7.0'
+PowerShellVersion = '5.1'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''

@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Changed
+- Minimum PowerShell version dropped to 5.1 from 7.0
 
 ## [5.0.0] - 2022-04-20
 ### Added
