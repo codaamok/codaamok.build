@@ -1,4 +1,10 @@
 ## [Unreleased]
+### Added
+- New `src/Enums` folder
+- `using` statements are taken from all .ps1 files under the `src/Classes` folder and placed at the top of the .psm1, before inserting class code. Then all over code is inserted; script files under `src/Enums`, `src/Private`, and `src/Public`.
+
+### Changed
+- Folder `src/Types` must now be `src/Classes`
 
 ## [4.0.7] - 2022-04-14
 ### Changed
