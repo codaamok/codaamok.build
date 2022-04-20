@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [5.0.0] - 2022-04-20
 ### Added
 - New `src/Enums` folder
 - `using` statements are taken from all .ps1 files under the `src/Classes` folder and placed at the top of the .psm1, before inserting class code. Then all over code is inserted; script files under `src/Enums`, `src/Private`, and `src/Public`.
@@ -189,7 +191,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/4.0.7..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/5.0.0..HEAD
+[5.0.0]: https://github.com/codaamok/codaamok.build/compare/4.0.7..5.0.0
 [4.0.7]: https://github.com/codaamok/codaamok.build/compare/4.0.6..4.0.7
 [4.0.6]: https://github.com/codaamok/codaamok.build/compare/4.0.4..4.0.6
 [4.0.4]: https://github.com/codaamok/codaamok.build/compare/4.0.3..4.0.4
