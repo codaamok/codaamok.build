@@ -12,7 +12,7 @@
 RootModule = 'codaamok.build.psm1'
 
 # Version number of this module.
-ModuleVersion = '5.0.0'
+ModuleVersion = '5.0.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -107,11 +107,8 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = '# Added
-- New src/Enums folder
-- using statements are taken from all .ps1 files under the src/Classes folder and placed at the top of the .psm1, before inserting class code. Then all over code is inserted; script files under src/Enums, src/Private, and src/Public.
-# Changed
-- Folder src/Types must now be src/Classes'
+        ReleaseNotes = '# Changed
+- Minimum PowerShell version dropped to 5.1 from 7.0'
 
         # Prerelease string of this module
         # Prerelease = ''

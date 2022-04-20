@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [5.0.1] - 2022-04-20
 ### Changed
 - Minimum PowerShell version dropped to 5.1 from 7.0
 
@@ -193,7 +195,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/5.0.0..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/5.0.1..HEAD
+[5.0.1]: https://github.com/codaamok/codaamok.build/compare/5.0.0..5.0.1
 [5.0.0]: https://github.com/codaamok/codaamok.build/compare/4.0.7..5.0.0
 [4.0.7]: https://github.com/codaamok/codaamok.build/compare/4.0.6..4.0.7
 [4.0.6]: https://github.com/codaamok/codaamok.build/compare/4.0.4..4.0.6
