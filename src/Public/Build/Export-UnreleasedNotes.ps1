@@ -43,7 +43,7 @@ function Export-UnreleasedNotes {
     }
 
     if ($EmptyChangeLog -eq $true -Or $ReleaseNotes.Count -eq 0) {
-        if ($NewRelease.IsPresent) {
+        if ($NewRelease) {
             throw "Can not build with empty Unreleased section in the change log"
         }
         else {

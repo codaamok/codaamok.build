@@ -1,4 +1,6 @@
 ## [Unreleased]
+### Fixed
+- `Export-UnreleasedNotes` incorrectly checked `IsPresent` property of a boolean for param `-NewRelease`. This param was once a switch, but then change to a bool.
 
 ## [5.0.1] - 2022-04-20
 ### Changed

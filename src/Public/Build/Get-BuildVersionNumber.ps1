@@ -46,7 +46,7 @@ function Get-BuildVersionNumber {
     Write-Verbose ("Manifest version: {0}" -f $ManifestData.ModuleVersion) -Verbose
 
     if (-not $VersionToBuild) {
-        if ($NewRelease.IsPresent) {
+        if ($NewRelease) {
             # Try and piece together an understanding from the module manifest, PowerShell Gallery, and the change log, as to what the next version number should be
 
             # If the last released version in the change log and latest version available in the PowerShell gallery do not match, throw an exception - get them level!
