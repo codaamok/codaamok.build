@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [5.0.2] - 2022-09-20
 ### Fixed
 - `Export-UnreleasedNotes` incorrectly checked `IsPresent` property of a boolean for param `-NewRelease`. This param was once a switch, but then change to a bool.
 
@@ -197,7 +199,8 @@
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/codaamok/codaamok.build/compare/5.0.1..HEAD
+[Unreleased]: https://github.com/codaamok/codaamok.build/compare/5.0.2..HEAD
+[5.0.2]: https://github.com/codaamok/codaamok.build/compare/5.0.1..5.0.2
 [5.0.1]: https://github.com/codaamok/codaamok.build/compare/5.0.0..5.0.1
 [5.0.0]: https://github.com/codaamok/codaamok.build/compare/4.0.7..5.0.0
 [4.0.7]: https://github.com/codaamok/codaamok.build/compare/4.0.6..4.0.7
